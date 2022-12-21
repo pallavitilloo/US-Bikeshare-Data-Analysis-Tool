@@ -9,7 +9,3 @@ This is an interactive tool to explore data and useful statistics related to bik
 
 ### Files used
 bikeshare.py
-
-### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
