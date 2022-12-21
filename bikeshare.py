@@ -15,6 +15,7 @@ day = month = 'all'
 continue_flag = True
 valid_choice = True
 accepted_yeses = ['yes','y']
+max_screen_width = 175
 
 # Function definitions
 def load_data(city, month, day):
@@ -66,8 +67,17 @@ def get_data_in_batches(city_data, batch_size, column_list):
     for i in range(0, len(city_data), batch_size):
         yield city_data[i:i+batch_size][column_list]
 
+def print_heading(heading):
+    '''
+    Prints the given string in a heading format on the screen
+    :param heading: The heading to be printed
+    :return: None
+    '''
+    no_of_stars = (max_screen_width - len(heading))//2
+    print(("\n" + "*" * no_of_stars + "  {}  " + "*" * no_of_stars).format(heading))
+
 # Program execution begins here
-print("\n************************************************************ US BIKESHARE DATA INTERACTIVE TOOL ************************************************************")
+print_heading("US BIKESHARE DATA INTERACTIVE TOOL")
 
 try:
     while continue_flag:
@@ -106,7 +116,7 @@ try:
                     print('\nBased on your inputs, here are some interesting statistics...')
 
                     # First part of the information - popular times of travel
-                    print("\n*****************************************************************  POPULAR TIMES OF TRAVEL  ****************************************************************")
+                    print_heading("POPULAR TIMES OF TRAVEL")
                     popular_month, count_popular_month = get_popular_data(df_data, 'Month')
                     print('The most common month of usage is : {} with a COUNT of {} entries'.format(
                         month_names.get(popular_month), count_popular_month))
@@ -118,7 +128,7 @@ try:
                         *get_popular_data(df_data, 'Hour')))
 
                     # Second part of the information - popular stations and trips
-                    print("\n*****************************************************************  POPULAR STATIONS AND TRIPS  *************************************************************")
+                    print_heading("POPULAR STATIONS AND TRIPS")
                     print('The most common start station is : {} with a COUNT of {} entries'.format(
                         *get_popular_data(df_data, 'Start Station')))
                     print('The most common end station is : {} with a COUNT of {} entries'.format(
@@ -127,13 +137,13 @@ try:
                         *get_popular_data(df_data, 'Trip')))
 
                     # Third part of the information - trip duration
-                    print("\n*********************************************************************  TRIP DURATION  **********************************************************************")
+                    print_heading("TRIP DURATION")
                     print('The total travel time is : {} minutes for a COUNT of {} entries'.format(
                         df_data['Trip Duration'].sum(), df_data['Trip Duration'].count()))
                     print('The average travel time is : {} minutes'.format(df_data['Trip Duration'].mean()))
 
                     # Fourth part of the information - user information
-                    print("\n*******************************************************************  USER INFORMATION  *********************************************************************")
+                    print_heading("USER INFORMATION")
                     for label, count in df_data['User Type'].value_counts().items():
                         print('Number of {}s : {}'.format(label, count))
 
