@@ -20,9 +20,9 @@ accepted_yeses = ['yes','y']
 def load_data(city, month, day):
     '''
     This function loads data for the specified city for the specified month and/or day
-    :param city: (string) The city for which data needs to be fetched. This will be mapped into city_dict to fetch that CSV file
+    :param city: (string) The city for which data needs to be fetched.
     :param month: (string) The month for which user would like to filter the data
-    :param day: (string) The day (weekday) for which the user would like to filter the data
+    :param day: (string) The day for which the user would like to filter the data
     :return: (DataFrame) Returns the loaded data into a Pandas DataFrame
     '''
     file_name = city_dict.get(city.lower())
