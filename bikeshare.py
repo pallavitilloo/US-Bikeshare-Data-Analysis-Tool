@@ -179,8 +179,7 @@ try:
                             for row in batch.iterrows():
                                 for label, item in row[1].items():
                                     print('{} : {}'.format(label.upper(), item))
-                                print("--------------------------------------------------------------------------------------------------------------")
-
+                                print('-' * max_screen_width)
                             # If the user wants to continue seeing more rows of data
                             raw_data_choice = input('\nPress \'y\' to continue seeing the next 5 rows of data...').lower() in accepted_yeses
 
@@ -199,7 +198,7 @@ try:
         finally:
 
             # The user can continue again if they want
-            print("\n************************************************************************************************************************************************************")
+            print("\n" + "*" * max_screen_width)
             continue_flag = input('\nDo you want to continue? (y/n) : ').lower() in accepted_yeses
 
 # This is to handle any issues of Keyboard interruptions during the execution.
