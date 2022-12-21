@@ -9,3 +9,7 @@ This is an interactive tool to explore data and useful statistics related to bik
 
 ### Files used
 bikeshare.py
+
+### Credits
+https://peps.python.org/pep-0257/
+https://pandas.pydata.org/docs/reference/frame.html
